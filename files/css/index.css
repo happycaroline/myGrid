@@ -1,0 +1,307 @@
+body{
+	font-family: "微软雅黑"
+}
+.ui-loader{
+    display: none;
+}
+.item img{
+    width:100%;
+
+}
+.item{
+    background-size: 100%;
+}
+.shadow{
+	background-color: #000;
+	opacity: 0.5;
+	width: 100%;
+	height: 370px;
+	z-index: 39;
+	margin-top: -370px;
+}
+.item1{
+    background-image:url(../images/banner1.png);    
+}
+.item2{
+    background-image:url(../images/banner2.png);    
+}
+.item3{
+    background-image:url(../images/banner3.png);    
+}
+.item4{
+    background-image:url(../images/banner4.png);    
+}
+.carousel-caption {
+	height: 100%;
+}
+.carousel-caption p{
+	font-size: 1.9vw;
+	font-weight: 100;
+}
+.carousel-caption p:first-child{
+	margin-top: 5vw;
+	margin-bottom: 1.9vw;
+}
+.btn-default,.btn-default:active{
+	margin-top: 1.9vw;
+	background: transparent;
+	color: white!important;
+}
+.btn-default:hover,.btn-default:focus{
+	background-color: transparent;
+}
+.bg{background-color: #f0eeef;}
+.intro{
+	width: 100%;
+    height: 670px;
+	text-align: center;
+	padding: 0 15.5vw;
+	background-image: url(../images/bg.png);
+	background-color: #f0eeef;
+}
+.touxiang{
+	margin: 0 auto;
+	padding-top: 4.5vw;
+	padding-bottom: 2.5vw;
+}
+.intro h4{
+	color:#0e0e0e;
+	margin-bottom: 30px;
+}
+.intro p{
+	color:#3f3f3f;
+	font-size: 12px;
+    line-height: 24px;
+}
+.intro p:last-child{
+	margin-top: 30px;
+}
+.activity{
+	background-color: #f5f5f5;
+	padding: 50px 135px 50px;}
+.clear{
+	clear: both;
+}
+.activity h3,.works h3{
+	text-align: center;
+	color:#382a25;
+	margin-bottom: 50px;
+}
+.works{
+	background-color: #bfb89e;
+	padding: 50px 135px 50px;}
+.contact{
+	background-color: #000000;
+	padding: 50px 135px 50px;
+	color:#fff;
+	text-align: center;
+}
+.fixed{
+	position: absolute;
+	top:20px;
+	right:20px;
+	z-index: 1
+}
+.modal-content{
+	border-radius: 0;
+}
+#activityModal .modal-dialog{
+	width: 800px;
+    margin-top: 100px;
+}
+.content{
+	font-size: 12px;
+	line-height: 2
+}
+
+.modal-body span{
+	margin-top: 30px;
+ 	display: inline-block;
+ 	margin-right: 20px;
+}
+.close {
+  float: right;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  margin: 0;
+}
+.close span{
+	margin:0;
+}
+
+.thumbnail {
+	border:none;
+	border-radius: 0;
+	background-color: transparent;
+	text-decoration: none!important;
+}
+.thumbnail:hover .imgshadow{
+	display: block;
+}
+.imgshadow{
+	width: 100%;
+	height: 180px;
+    max-width: 300px;
+	margin-top: -180px;
+	background-color: #000;
+	z-index: 6;
+	position: relative;
+	opacity: 0.5;
+	color: white;
+	text-align: center;
+	padding-top: 65px;
+	display: none;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 4px;
+}
+.activity img{
+	height: 180px;
+    width: 100%; 
+    display: block;
+    max-width: 300px;
+}
+.works img{height: auto; width: 100%; display: block;max-width: 300px;}
+
+#workModal .modal-body{
+padding: 0
+}
+#workModal .modal-dialog{
+	width: 1024px;
+    margin-top: 100px;
+}
+.worktitle{
+    font-size: 24px;
+    line-height: 50px;
+    margin-left: 10px;
+}
+*{
+	outline: 0!important
+}
+
+.backToTop{
+    padding: 10px;
+    background-color: black;
+    opacity: 0.15;
+    color: white;
+    font-size: xx-large;
+    position: fixed;
+    top: 300px;
+    right: 0;
+    width: 52px;
+    height: 52px;
+    z-index: 10;
+    display: none;
+}
+.museum{
+    margin-bottom: 0;
+}
+.col-xs-6{
+    padding: 5px;
+}
+@media screen and (max-width:780px) {
+    .item {
+        min-height: 270px;
+        background-size: 976px auto;
+        background-position: 745px;
+    }
+    .carousel-caption p {
+        font-size: 3.4vw;
+    }
+    .btn-default {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    .intro {
+        width: 100%;
+        height: 670px;
+        text-align: center;
+        padding: 0 15.5vw;
+        background-image: url(../images/bg.png);
+        background-color: #f0eeef;
+        background-origin: content-box;
+        background-size: auto 690px;
+    }
+    .intro p {
+        color: #3f3f3f;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .shadow{
+        height: 270px;
+        margin-top:-270px;
+    }
+    .carousel-caption p:first-child {
+        margin-top: 24vw;
+        font-size: 4vw;
+        white-space: nowrap;
+    }
+    .activity,.works {
+        padding-left:0;
+        padding-right:0;
+    }
+    .modal-open .modal {
+        padding-top: 40px;
+    }
+    #activityModal .modal-dialog,#workModal .modal-dialog {
+        width: 95%;
+    }
+    .activity img {
+        height: auto;
+        width: 100%;
+    }
+    .thumbnail:hover .imgshadow{
+        display: none;
+    }
+    .contact {
+        padding: 50px 80px 50px;
+    }
+    .intro {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width:1024px){
+    .btn-default {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    .shadow{
+        height: 270px;
+        margin-top:-270px;
+    }
+    .activity,.works {
+        padding-left:0;
+        padding-right:0;
+    }
+    .modal-open .modal {
+        padding-top: 40px;
+    }
+    #activityModal .modal-dialog,#workModal .modal-dialog {
+        width: 95%;
+    }
+    .activity img {
+        height: auto;
+        width: 100%;
+    }
+    .thumbnail:hover .imgshadow{
+        display: none;
+    }
+    .contact {
+        padding: 50px 80px 50px;
+    }
+    .intro {
+        padding: 0 15px;
+    }
+    .touxiang {
+      padding-top: 40px;
+    }
+}
