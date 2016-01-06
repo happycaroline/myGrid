@@ -1,38 +1,53 @@
 (function($) {
     
     $.fn.myGrid = function(options) {
-        var thead,ths,tbody,tds,rows;
-        // debugger
-        for(var i=0;i<options.columns.length;i++){
-            ths+='<th>'+options.columns[i].datafield+'</th>';
-
-        }
-
-        thead='<thead><tr>'+ths+'</tr></thead>';
-        var html='<table class="table table-hover">\
-                      '+thead+'\
-                      <tbody>\
-                        <tr>\
-                          <td>Mark</td>\
-                          <td>Otto</td>\
-                          <td>@mdo</td>\
-                        </tr>\
-                        <tr>\
-                          <td>Jacob</td>\
-                          <td>Thornton</td>\
-                          <td>@fat</td>\
-                        </tr>\
-                        <tr>\
-                          <td>Larry</td>\
-                          <td>the Bird</td>\
-                          <td>@twitter</td>\
-                        </tr>\
-                      </tbody>\
-                    </table>'
-
-        $(this).html(html)
-
+        
+        data = new MYGrid(this, options);
+        console.log($.fn.myGrid.defaults)
         return this;
+    }
+    //默认参数
+    $.fn.myGrid.defaults={
+        nodatatext:'no data'
+    }
+    var MYGrid=function(element,options){
+        this.opts=options;
+        this._tableLayout($(element));
+    }
+
+    $.fn.myGrid.constructor=MYGrid;
+    //私有方法
+    MYGrid.prototype={
+        _test:function(){
+             console.log(2)
+        },
+        _tableLayout:function($ele){
+            var opts=this.opts;
+            var thead=ths=tbody='',rows=[];
+            for(var i=0;i<opts.columns.length;i++){
+                ths+='<th>'+opts.columns[i].datafield+'</th>';
+            };
+            thead='<thead><tr>'+ths+'</tr></thead>';
+            if(opts.data){
+                for(var i=0; i<opts.data.length;i++){
+                    var item = opts.data[i];
+                    rows.push('<tr>');
+                    for(var td in item){
+                        rows.push('<td class="customerName">' + item[td] + '</td>')
+                    }
+                    rows.push('</tr>');
+
+                }
+            }
+            var html='<table class="table table-hover">\
+                          '+thead+'\
+                          <tbody>\
+                            '+rows.join('')+'\
+                          </tbody>\
+                        </table>'
+            $ele.html(html)
+            return this;
+        }
     }
  
 })(jQuery);
