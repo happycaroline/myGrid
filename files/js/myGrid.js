@@ -35,7 +35,7 @@
                     this._tableHead(),
                     this._tableBody(),
                     '</table>',
-                    this._tableNoData(),
+                    this._tableNoData()
             ]
             $ele.html(html.join(''))
             
@@ -77,5 +77,6 @@
                 return ''
             }
         }
+        
     }
 })(jQuery);
