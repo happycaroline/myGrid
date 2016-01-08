@@ -16,7 +16,8 @@
     $.fn.myGrid.defaults={
         nodatatext:'no data',
         data:[],
-        columns:[]
+        columns:[],
+        className:'table'
     }
     var MYGrid=function(element,options){
         this.opts=options;
@@ -28,12 +29,34 @@
     MYGrid.prototype={
         _tableLayout:function($ele){
             var opts=this.opts;
-            var thead=ths=tbody='',rows=[];
-            for(var i=0;i<opts.columns.length;i++){
-                ths+='<th>'+opts.columns[i].datafield+'</th>';
-            };
+            var html=[
+                '<div class="myGrid">',
+                    '<table class="'+opts.className+'">',
+                    this._tableHead(),
+                    this._tableBody(),
+                    '</table>',
+                    this._tableNoData(),
+            ]
+            $ele.html(html.join(''))
+            
+            return this;
+        },
+        _tableHead:function(){
+            var opts=this.opts,
+                columns=opts.columns,thead=ths='';
+            for(var i=0;i<columns.length;i++){
+                    ths+='<th>'+columns[i].text+'</th>';
+                };
+
             thead='<thead><tr>'+ths+'</tr></thead>';
+
+            return thead;
+        },
+        _tableBody:function(){
+            var opts=this.opts,
+                rows=['<tbody>'];
             if(opts.data.length){
+                
                 for(var i=0; i<opts.data.length;i++){
                     var item = opts.data[i];
                     rows.push('<tr>');
@@ -41,26 +64,18 @@
                         rows.push('<td class="customerName">' + item[td] + '</td>')
                     }
                     rows.push('</tr>');
-
                 }
-                var html='<table class="table table-hover">\
-                          '+thead+'\
-                          <tbody>\
-                            '+rows.join('')+'\
-                          </tbody>\
-                        </table>'
-                $ele.html(html)
-            }else{
-                var html='<table class="table table-hover">\
-                          '+thead+'\
-                          <tbody>\
-                          </tbody>\
-                        </table><div>'+opts.nodatatext+'</div>'
-                $ele.html(html)
+                return rows.join('</tbody>')
             }
             
-            return this;
+        },
+        _tableNoData:function(){
+            var opts=this.opts;
+            if(!opts.data.length){
+                return '<div>'+opts.nodatatext+'</div>'
+            }else{
+                return ''
+            }
         }
     }
- 
 })(jQuery);
