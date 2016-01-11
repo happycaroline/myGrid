@@ -27,6 +27,9 @@
     $.fn.myGrid.constructor=MYGrid;
     //私有方法
     MYGrid.prototype={
+        _getColumn:function(){
+
+        },
         _tableLayout:function($ele){
             var opts=this.opts;
             var html=[
@@ -44,8 +47,12 @@
         _tableHead:function(){
             var opts=this.opts,
                 columns=opts.columns,thead=ths='';
-            for(var i=0;i<columns.length;i++){
-                    ths+='<th>'+columns[i].text+'</th>';
+                for(var i=0;i<columns.length;i++){
+                    if(columns[i].text){
+                        ths+='<th>'+columns[i].text+'</th>';
+                    }else{
+                        ths+='<th>'+columns[i].datafield+'</th>';
+                    }
                 };
 
             thead='<thead><tr>'+ths+'</tr></thead>';
@@ -54,20 +61,22 @@
         },
         _tableBody:function(){
             var opts=this.opts,
+                columns=opts.columns,
                 rows=['<tbody>'];
             if(opts.data.length){
-                
                 for(var i=0; i<opts.data.length;i++){
                     var item = opts.data[i];
                     rows.push('<tr>');
-                    for(var td in item){
-                        rows.push('<td class="customerName">' + item[td] + '</td>')
-                    }
+                    for(var j=0;j<columns.length;j++){
+                        if(columns[j].datafield in item){
+                            rows.push('<td>' + item[columns[j].datafield] + '</td>')
+                        }
+                    };
                     rows.push('</tr>');
                 }
-                return rows.join('</tbody>')
+                rows.push('</tbody>')
             }
-            
+            return rows.join('')
         },
         _tableNoData:function(){
             var opts=this.opts;

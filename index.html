@@ -14,13 +14,13 @@
     <script>
     $('#tabletest').myGrid({
         columns: [
-            { text: 'First Name', datafield: 'firstname', width: 100 ,group:'name'},
-            { text: 'Last Name', datafield: 'lastname', width: 100 ,gruop:'name'},
-            { text: 'Product', datafield: 'username', width: 180 }
+            { text: '姓名', datafield: 'name', width: 100 ,gruop:'name'},
+            { text: '性别', datafield: 'sex', width: 100 ,group:'name'},
+            { text: '成绩', datafield: 'score', width: 180 }  
         ]
-        // ,data:[  {firstname:'Mark',lastname:'Otto',username:'@mdo'},
-        //         {firstname:'Mark2',lastname:'Otto2',username:'@mdo2'},
-        //         {firstname:'Mark3',lastname:'Otto3',username:'@mdo3'},]
+        ,data:[  {name:'Mark',sex:'男',score:'优'},
+                {name:'Lily',sex:'女',score:'良'},
+                {name:'Tom',sex:'男',score:'中'},]
     });
     </script>
 </body>
