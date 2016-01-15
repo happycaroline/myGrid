@@ -13,9 +13,11 @@
     </div>
     <script>
     $('#tabletest').myGrid({
+        //width:"",
+        headDeep:2,
         columns: [
-            { text: '姓名', datafield: 'name', width: 100 ,gruop:'name'},
-            { text: '性别', datafield: 'sex', width: 100 ,group:'name'},
+            { text: '姓名', datafield: 'name', width: 100 ,category:'个人信息'},
+            { text: '性别', datafield: 'sex', width: 100 ,category:'个人信息'},
             { text: '成绩', datafield: 'score', width: 180 }  
         ]
         ,data:[  {name:'Mark',sex:'男',score:'优'},

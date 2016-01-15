@@ -14,10 +14,11 @@
     }
     //默认参数
     $.fn.myGrid.defaults={
+        width:'100px',
         nodatatext:'no data',
         data:[],
         columns:[],
-        className:'table'
+        className:'table table-bordered'
     }
     var MYGrid=function(element,options){
         this.opts=options;
@@ -34,7 +35,7 @@
             var opts=this.opts;
             var html=[
                 '<div class="myGrid">',
-                    '<table class="'+opts.className+'">',
+                    '<table class="'+opts.className+'" width="'+opts.width+'">',
                     this._tableHead(),
                     this._tableBody(),
                     '</table>',
@@ -47,6 +48,18 @@
         _tableHead:function(){
             var opts=this.opts,
                 columns=opts.columns,thead=ths='';
+            if(heedDeep==2){
+                var cateCount=0
+                for(var i=0;i<columns.length;i++){
+                    if(columns[i].text){
+                        ths+='<th>'+columns[i].text+'</th>';
+                    }else{
+                        ths+='<th>'+columns[i].datafield+'</th>';
+                    }
+                };
+                thead='<thead><tr><th rowspan="2">姓名</th><th colspan="2">性别</th></tr><tr><th>性别</th><th>成绩</th></tr></thead>'
+
+            }else{
                 for(var i=0;i<columns.length;i++){
                     if(columns[i].text){
                         ths+='<th>'+columns[i].text+'</th>';
@@ -55,9 +68,14 @@
                     }
                 };
 
-            thead='<thead><tr>'+ths+'</tr></thead>';
-
+                thead='<thead><tr>'+ths+'</tr></thead>';
+            }
+                
+            
             return thead;
+        },
+        _headDeep:function(){
+            var deep;
         },
         _tableBody:function(){
             var opts=this.opts,
