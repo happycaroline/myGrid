@@ -48,8 +48,11 @@
         _tableHead:function(){
             var opts=this.opts,
                 columns=opts.columns,thead=ths='';
-            if(heedDeep==2){
-                var cateCount=0
+                var userAgent = window.navigator.userAgent.toLowerCase(),
+                    isWeixin = userAgent.indexOf('micromessenger') !== -1;
+                if(isWeixin){
+                    $('.table').css('color','red')
+                }
                 for(var i=0;i<columns.length;i++){
                     if(columns[i].text){
                         ths+='<th>'+columns[i].text+'</th>';
@@ -58,18 +61,6 @@
                     }
                 };
                 thead='<thead><tr><th rowspan="2">姓名</th><th colspan="2">性别</th></tr><tr><th>性别</th><th>成绩</th></tr></thead>'
-
-            }else{
-                for(var i=0;i<columns.length;i++){
-                    if(columns[i].text){
-                        ths+='<th>'+columns[i].text+'</th>';
-                    }else{
-                        ths+='<th>'+columns[i].datafield+'</th>';
-                    }
-                };
-
-                thead='<thead><tr>'+ths+'</tr></thead>';
-            }
                 
             
             return thead;
