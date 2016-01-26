@@ -24,6 +24,11 @@
                 {name:'Lily',sex:'女',score:'良'},
                 {name:'Tom',sex:'男',score:'中'},]
     });
+     var userAgent = window.navigator.userAgent.toLowerCase(),
+                    isWeixin = userAgent.indexOf('micromessenger') !== -1;
+                if(isWeixin){
+                    $('.table').css('color','red')
+                }
     </script>
 </body>
 </html>

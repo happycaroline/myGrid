@@ -48,11 +48,7 @@
         _tableHead:function(){
             var opts=this.opts,
                 columns=opts.columns,thead=ths='';
-                var userAgent = window.navigator.userAgent.toLowerCase(),
-                    isWeixin = userAgent.indexOf('micromessenger') !== -1;
-                if(isWeixin){
-                    $('.table').css('color','red')
-                }
+               
                 for(var i=0;i<columns.length;i++){
                     if(columns[i].text){
                         ths+='<th>'+columns[i].text+'</th>';
